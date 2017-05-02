@@ -11,14 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502100032) do
+ActiveRecord::Schema.define(version: 20170502110419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "participants", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "sex"
+    t.string   "title"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "organisation"
+    t.string   "address"
+    t.integer  "postal_code"
+    t.string   "city"
+    t.string   "country"
+    t.string   "email"
+    t.string   "telephone"
+    t.boolean  "accepted_data_storage"
   end
 
 end

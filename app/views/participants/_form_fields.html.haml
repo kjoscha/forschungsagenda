@@ -1,0 +1,85 @@
+.row
+  .col-xs-12
+    %h1 Ihre persönliche Daten
+
+.row
+  .col-xs-6
+    Anrede:
+  .col-xs-6
+    = f.select :sex, ['Herr', 'Frau'], {prompt: 'Bitte wählen'}, {class: (validation_class(:sex))}
+
+.row
+  .col-xs-6
+    Akademischer Titel:
+  .col-xs-6
+    = f.text_field :title, placeholder: 'z.B. Dr.', class: (validation_class(:title))
+
+.row
+  .col-xs-6
+    Vorname:
+  .col-xs-6
+    = f.text_field :first_name, class: (validation_class(:first_name))
+
+.row
+  .col-xs-6
+    Nachname:
+  .col-xs-6
+    = f.text_field :last_name, class: (validation_class(:last_name))
+
+.row
+  .col-xs-6
+    Institution/Organisation:
+  .col-xs-6
+    = f.text_field :organisation, class: (validation_class(:organisation))
+
+.row
+  .col-xs-6
+    Straße und Hausnummer:
+  .col-xs-6
+    = f.text_field :address, class: (validation_class(:address))
+
+.row
+  .col-xs-6
+    Postleitzahl:
+  .col-xs-6
+    = f.text_field :postal_code, class: (validation_class(:postal_code))
+
+.row
+  .col-xs-6
+    Ort:
+  .col-xs-6
+    = f.text_field :city, class: (validation_class(:city))
+
+.row
+  .col-xs-6
+    Land:
+  .col-xs-6
+    = f.text_field :country, class: (validation_class(:country))
+
+.row
+  .col-xs-6
+    Email:
+  .col-xs-6
+    = f.text_field :email, class: (validation_class(:email))
+
+.row
+  .col-xs-6
+    Email Wdh.:
+  .col-xs-6
+    = f.text_field :email_confirmation, class: 'form-control'
+
+.row
+  .col-xs-6
+    Telefonnummer:
+  .col-xs-6
+    = f.text_field :telephone, class: (validation_class(:telephone))
+
+.row
+  .col-xs-12
+    = f.label :accepted_data_storage do
+      = f.check_box :accepted_data_storage
+    %i Ich bin damit einverstanden, dass meine personenbezogenen Daten zur ordnungsmäßen Durchführung der Veranstaltung gespeichert werden.*
+
+.row
+  .col-xs-12
+    %h1 Dienstag, 09.05.2017

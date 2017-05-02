@@ -23,9 +23,28 @@ $blue: #004f80;
   font-family: BundesSansWeb, Helvetica Neue, Arial, sans-serif;
 }
 
+.container {
+  .row {
+    font-size: 16px;
+  }
+}
+
 h1 {
   font-family: BundesSerifWeb, 'Times New Roman', serif;
   font-weight: bold;
+}
+
+.form {
+  .row {
+    margin-bottom: 5px;
+  }
+}
+
+.form-control {
+  border-radius: 0;
+  &.error {
+    border: 1px solid red;
+  }
 }
 
 .navbar {
