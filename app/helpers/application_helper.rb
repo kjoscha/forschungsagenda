@@ -1,9 +1,21 @@
 module ApplicationHelper
   def validation_class(attribute_name)
     if @participant.errors[attribute_name].present?
-      return 'form-control error'.html_safe
+      return 'error'.html_safe
     else
-      return 'form-control'.html_safe
+      return ''.html_safe
+    end
+  end
+
+  def admin?
+    session[:admin]
+  end
+
+  def authenticate
+    authenticate_or_request_with_http_basic('Administration') do |username, password|
+      if (username == 'admin' && password == 'secret')
+        session[:admin] = true
+      end
     end
   end
 end

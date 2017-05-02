@@ -38,13 +38,16 @@ h1 {
   .row {
     margin-bottom: 5px;
   }
+  #participant_accepted_data_storage {
+    float: left;
+  }
+  .field_with_errors {
+    border: 1px solid red;
+  }
 }
 
 .form-control {
   border-radius: 0;
-  &.error {
-    border: 1px solid red;
-  }
 }
 
 .navbar {

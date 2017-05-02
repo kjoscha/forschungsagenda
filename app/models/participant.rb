@@ -1,7 +1,7 @@
 class Participant < ActiveRecord::Base
   validates_confirmation_of :email
 
-  validates :sex, :first_name, :last_name, :email, :organisation, :address, :postal_code, :city, :country, presence: true
+  validates :sex, :first_name, :last_name, :email, :organisation, :address, :postal_code, :city, :country, :accepted_data_storage, presence: true
 
   validates :first_name, length: { minimum: 2 }
   validates :last_name, length: { minimum: 2 }

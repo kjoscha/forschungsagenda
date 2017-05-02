@@ -2,71 +2,73 @@
 
   .row
     .col-xs-12
+      = render 'layouts/flash'
+    .col-xs-12
       %h1 Ihre persönliche Daten
 
   .row
     .col-sm-6
-      Anrede:
+      Anrede *:
     .col-sm-6
-      = f.select :sex, ['Herr', 'Frau'], {prompt: 'Bitte wählen'}, {class: (validation_class(:sex))}
+      = f.select :sex, ['Herr', 'Frau'], {prompt: 'Bitte wählen'}, {class: 'form-control'}
 
   .row
     .col-sm-6
-      Akademischer Titel:
+      Akademischer Titel *:
     .col-sm-6
-      = f.text_field :title, placeholder: 'z.B. Dr.', class: (validation_class(:title))
+      = f.text_field :title, placeholder: 'z.B. Dr.', class: 'form-control'
 
   .row
     .col-sm-6
-      Vorname:
+      Vorname *:
     .col-sm-6
-      = f.text_field :first_name, class: (validation_class(:first_name))
+      = f.text_field :first_name, class: 'form-control'
 
   .row
     .col-sm-6
-      Nachname:
+      Nachname *:
     .col-sm-6
-      = f.text_field :last_name, class: (validation_class(:last_name))
+      = f.text_field :last_name, class: 'form-control'
 
   .row
     .col-sm-6
-      Institution/Organisation:
+      Institution/Organisation *:
     .col-sm-6
-      = f.text_field :organisation, class: (validation_class(:organisation))
+      = f.text_field :organisation, class: 'form-control'
 
   .row
     .col-sm-6
-      Straße und Hausnummer:
+      Straße und Hausnummer *:
     .col-sm-6
-      = f.text_field :address, class: (validation_class(:address))
+      = f.text_field :address, class: 'form-control'
 
   .row
     .col-sm-6
-      Postleitzahl:
+      Postleitzahl *:
     .col-sm-6
-      = f.text_field :postal_code, class: (validation_class(:postal_code))
+      = f.text_field :postal_code, class: 'form-control'
 
   .row
     .col-sm-6
-      Ort:
+      Ort *:
     .col-sm-6
-      = f.text_field :city, class: (validation_class(:city))
+      = f.text_field :city, class: 'form-control'
 
   .row
     .col-sm-6
-      Land:
+      Land *:
     .col-sm-6
-      = f.text_field :country, class: (validation_class(:country))
+      = f.text_field :country, class: 'form-control'
 
   .row
     .col-sm-6
-      Email:
+      Email *:
     .col-sm-6
-      = f.text_field :email, class: (validation_class(:email))
+      = f.text_field :email, class: 'form-control'
 
   .row
     .col-sm-6
-      Email Wdh.:
+      Email Wdh. *:
     .col-sm-6
       = f.text_field :email_confirmation, class: 'form-control'
 
@@ -74,20 +76,19 @@
     .col-sm-6
       Telefonnummer:
     .col-sm-6
-      = f.text_field :telephone, class: (validation_class(:telephone))
+      = f.text_field :telephone, class: 'form-control'
 
   .row
     .col-sm-12
-      = f.label :accepted_data_storage do
-        = f.check_box :accepted_data_storage
-      %i Ich bin damit einverstanden, dass meine personenbezogenen Daten zur ordnungsmäßen Durchführung der Veranstaltung gespeichert werden.*
+      .checkbox
+        %label
+          = f.check_box :accepted_data_storage
+          Ich bin damit einverstanden, dass meine personenbezogenen Daten zur ordnungsmäßen Durchführung der Veranstaltung gespeichert werden. *
 
   .row
     .col-xs-12
       %h1 Dienstag, 09.05.2017
 
   .row
-    .col-xs-12
-      = render 'layouts/flash'
     .col-xs-12.margin-below
       = f.submit 'Abschicken', class: 'btn btn-success'
