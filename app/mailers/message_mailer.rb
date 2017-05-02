@@ -1,5 +1,5 @@
 class MessageMailer < ActionMailer::Base
-  default from: 'basta@lupus.uberspace.de'
+  default from: 'bmbf@suhail.uberspace.de'
   layout 'mailer'
 
   def confirmation_mail(participant)

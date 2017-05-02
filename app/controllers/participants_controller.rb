@@ -1,6 +1,6 @@
 class ParticipantsController < ApplicationController
   def index
-    @participants = Participant.all
+    @participants = Participant.all.order(:organisation).order(:last_name)
   end
 
   def new
@@ -10,11 +10,26 @@ class ParticipantsController < ApplicationController
   def create
     @participant = Participant.new(participant_params)
     if @participant.save
-      flash[:success] = 'Erfolgreich!'
       MessageMailer.confirmation_mail(@participant).deliver_now
+      flash[:success] = 'Erfolgreich angemeldet. Eine Bestätigungsemail wurde an Ihre Email versandt!'
       redirect_to root_path
     else
-      flash[:danger] = 'Bitte gültige Angaben machen und alle Pflichtfelder ausfüllen.'
+      flash.now[:danger] = 'Bitte gültige Angaben machen und alle Pflichtfelder ausfüllen.'
+      render :new
+    end
+  end
+
+  def show
+    @participant = Participant.find(params[:id])
+  end
+
+  def update
+    @participant = Participant.find(params[:id])
+    if @participant.update_attributes(participant_params)
+      flash[:success] = 'Erfolgreich aktualisiert'
+      redirect_to participants_path
+    else
+      flash.now[:danger] = 'Bitte gültige Angaben machen und alle Pflichtfelder ausfüllen.'
       render :new
     end
   end
