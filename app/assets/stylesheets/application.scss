@@ -16,3 +16,59 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+$blue: #004f80;
+
+* {
+  font-family: BundesSansWeb, Helvetica Neue, Arial, sans-serif;
+}
+
+h1 {
+  font-family: BundesSerifWeb, 'Times New Roman', serif;
+  font-weight: bold;
+}
+
+.navbar {
+  * {
+    font-family: BundesSerifWeb, 'Times New Roman', serif;
+  }
+  border-top: 10px solid $blue;
+  border-bottom: 70px solid $blue;
+  font-size: 21px;
+  background: white;
+
+  .navbar-header {
+    width: 100%;
+  }
+
+  .logo-left {
+    float: left;
+  }
+  .logo-right {
+    float: right;
+  }
+
+  .navbar-collapse {
+    float: left;
+    width: 100%;
+    clear: both;
+  }
+
+  .navbar-header {
+    padding-top: 70px;
+    padding-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-header {
+      padding-top: 10px;;
+    }
+    border-bottom: 20px solid $blue;
+    .logo {
+      float: left !important;
+      img {
+        height: 40px;
+      }
+    }
+  }
+}
