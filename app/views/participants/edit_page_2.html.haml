@@ -111,5 +111,6 @@
 
         .row
           .col-xs-12.margin-below
+            = f.hidden_field :pseudo_attribute, value: nil
             = hidden_field_tag :page, 'page_2'
             = f.submit 'weiter zu Seite 3', class: 'btn btn-success'
