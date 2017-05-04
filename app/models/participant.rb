@@ -19,4 +19,6 @@ class Participant < ActiveRecord::Base
     uniqueness: true
   validates :telephone,
     format: { with: /\A((?![a-zA-Z]).){3,20}\z/ }, if: 'telephone.present?'
+
+  mount_uploader :portrait, PortraitUploader
 end

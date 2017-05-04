@@ -96,7 +96,8 @@ class ParticipantsController < ApplicationController
       :focus,
       :transport,
       :measure,
-      :slogan
+      :slogan,
+      :portrait,
     )
   end
 end

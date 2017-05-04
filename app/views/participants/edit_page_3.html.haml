@@ -31,6 +31,15 @@
             = f.text_area :slogan, class: 'form-control'
 
         .row
+          .col-xs-12
+            %h4 4. Um die Vernetzung der Teilnehmerinnen und Teilnehmer auch wirklich zu fördern, möchten wir auch Fotos in die Ausstellung integrieren.  Bitte laden Sie hier ein Foto von sich hoch, wenn Sie eines zur Verfügung haben.
+          .col-xs-6
+            = f.file_field :portrait
+          .col-xs-6
+            - if @participant.portrait.url
+              = image_tag(@participant.portrait, class: 'portrait')
+
+        .row
           .col-xs-12.margin-below
             = hidden_field_tag :page, 'page_3'
             = f.submit 'Anmeldung abschließen', class: 'btn btn-success'
