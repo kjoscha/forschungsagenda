@@ -1,0 +1,105 @@
+.container
+  .row
+    .col-sm-8.col-sm-offset-2.form
+      = form_for(@participant) do |f|
+
+        .row
+          .col-xs-12
+            = render 'layouts/flash'
+
+          .col-xs-12
+            %h1 Donnerstag
+
+        .row
+          .col-xs-12
+            %h4 10:00 - 12:30 Uhr Eröffnung und Vorstellung des Agendaprozesses und der Berliner Erklärung *
+            %label
+              = f.radio_button :do_opening, true
+              Ja, ich nehme teil
+            %br
+            %label
+              = f.radio_button :do_opening, false
+              Nein, ich nehme nicht teil
+
+        .row
+          .col-xs-12
+            %h4 12:30 - 13:30 Uhr Mittagessen *
+            %label
+              = f.radio_button :do_lunch, true
+              Ja, ich nehme teil
+            %br
+            %label
+              = f.radio_button :do_lunch, false
+              Nein, ich nehme nicht teil
+
+        .row
+          .col-xs-12
+            %h4 13:30 - 16:30 Uhr Workshops *
+            %label
+              = f.radio_button :do_1330_workshop, 1
+              Workshop I: Sektorenkopplung Energie & Verkehr
+            %br
+            %label
+              = f.radio_button :do_1330_workshop, 2
+              Workshop II: Zusammenspiel von Logistik und Personenverkehr
+            %br
+            %label
+              = f.radio_button :do_1330_workshop, 3
+              Workshop III: Smart Data – Digitale Präsenz und realer Raum
+            %label
+              = f.radio_button :do_1330_workshop, 4
+              Workshop IV: Formate und Methoden umsetzungsorientierter Forschung
+            %br
+            %label
+              = f.radio_button :do_1330_workshop, 0
+              Ich nehme nicht teil
+
+        .row
+          .col-xs-12
+            %h4 18:30 - 22:00 Uhr Konferenzdinner *
+            %label
+              = f.radio_button :do_dinner, true
+              Ja, ich nehme teil
+            %br
+            %label
+              = f.radio_button :do_dinner, false
+              Nein, ich nehme nicht teil
+
+        .row
+          .col-xs-12
+            %h1 Freitag
+
+        .row
+          .col-xs-12
+            %h4 10:15 – 11:45 Uhr Parallele Workshops *
+            %label
+              = f.radio_button :fr_1015_workshop, 1
+              Workshop I: Start-up meets Wissenschaft
+            %br
+            %label
+              = f.radio_button :fr_1015_workshop, 2
+              Workshop II: Internationale Perspektive zur Forschung im Bereich nachhaltiger Mobilität
+            %br
+            %label
+              = f.radio_button :fr_1015_workshop, 3
+              Workshop III: Weitere Agendaprozesse im Bereich Mobilität
+            %br
+            %label
+              = f.radio_button :fr_1015_workshop, 0
+              Ich nehme nicht teil
+
+        .row
+          .col-xs-12
+            %h4 13:30 - 14:30 Uhr Mittagessen *
+            %label
+              = f.radio_button :fr_lunch, true
+              Ja, ich nehme teil
+            %br
+            %label
+              = f.radio_button :fr_lunch, false
+              Nein, ich nehme nicht teil
+
+        .row
+          .col-xs-12.margin-below
+            = hidden_field_tag :page, 'page_2'
+            = f.submit 'weiter zu Seite 3', class: 'btn btn-success'

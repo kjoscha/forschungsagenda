@@ -1,7 +1,9 @@
 class Participant < ActiveRecord::Base
-  validates_confirmation_of :email
+  validates_confirmation_of :email, on: :create
 
   validates :sex, :first_name, :last_name, :email, :organisation, :address, :postal_code, :city, :country, :accepted_data_storage, presence: true
+  validates :do_1330_workshop, :fr_1015_workshop, presence: true, on: :update
+  validates :do_opening, :do_lunch, :do_dinner, :fr_lunch, inclusion: { in: [ true, false ] }, on: :update
 
   validates :first_name, length: { minimum: 2 }
   validates :last_name, length: { minimum: 2 }

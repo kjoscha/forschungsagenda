@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502110419) do
+ActiveRecord::Schema.define(version: 20170504091719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,18 +19,33 @@ ActiveRecord::Schema.define(version: 20170502110419) do
   create_table "participants", force: :cascade do |t|
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.string   "sex"
+    t.string   "sex",                   null: false
     t.string   "title"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "organisation"
-    t.string   "address"
-    t.integer  "postal_code"
-    t.string   "city"
-    t.string   "country"
-    t.string   "email"
+    t.string   "first_name",            null: false
+    t.string   "last_name",             null: false
+    t.string   "organisation",          null: false
+    t.string   "address",               null: false
+    t.integer  "postal_code",           null: false
+    t.string   "city",                  null: false
+    t.string   "country",               null: false
+    t.string   "email",                 null: false
     t.string   "telephone"
-    t.boolean  "accepted_data_storage"
+    t.boolean  "accepted_data_storage", null: false
+    t.string   "division"
+    t.string   "projects"
+    t.string   "position"
+    t.string   "group"
+    t.string   "custom_group"
+    t.boolean  "do_opening"
+    t.boolean  "do_lunch"
+    t.integer  "do_1330_workshop"
+    t.boolean  "do_dinner"
+    t.integer  "fr_1015_workshop"
+    t.boolean  "fr_lunch"
+    t.string   "focus"
+    t.string   "transport"
+    t.string   "measure"
+    t.string   "slogan"
   end
 
 end

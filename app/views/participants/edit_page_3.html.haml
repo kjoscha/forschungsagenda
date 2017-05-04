@@ -1,0 +1,37 @@
+.container
+  .row
+    .col-sm-8.col-sm-offset-2.form
+      = form_for(@participant) do |f|
+
+        .row
+          .col-xs-12
+            = render 'layouts/flash'
+          .col-xs-12
+            %h1 weitere Angaben
+            Im Rahmen der Agendakonferenz möchten wir eine Ausstellung der Teilnehmerinnen und Teilnehmer erstellen, um die Vernetzung untereinander zu fördern. Wir würden uns freuen, wenn Sie dafür die folgenden Fragen beantworten würden.
+
+        .row
+          .col-xs-12
+            1. Was sind Ihre Themenschwerpunkte oder Projekte in Bezug auf das Themenfeld nachhaltige urbane Mobilität? (Bitte nicht mehr als 4 Punkte)
+          .col-xs-12
+            = f.text_area :focus, class: 'form-control'
+
+        .row
+          .col-xs-12
+            2. Welches der folgenden Fortbewegungsmittel nutzen Sie am häufigsten?
+          .col-xs-12
+            - ['Bus und Bahn', 'Auto', 'zu Fuß', 'Fahrrad'].each do |t|
+              %div
+                = f.radio_button :transport, t
+                = f.label :transport, t, value: t
+
+        .row
+          .col-xs-12
+            3. Was ist Ihrer Meinung nach in aller Kürze der wichtigste Forschungs- oder Handlungsbedarf für eine nachhaltige urbane Mobilität der Zukunft?
+          .col-xs-12
+            = f.text_area :slogan, class: 'form-control'
+
+        .row
+          .col-xs-12.margin-below
+            = hidden_field_tag :page, 'page_3'
+            = f.submit 'Anmeldung abschließen', class: 'btn btn-success'

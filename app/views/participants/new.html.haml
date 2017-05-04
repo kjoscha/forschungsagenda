@@ -1,4 +1,112 @@
 .container
   .row
     .col-sm-8.col-sm-offset-2.form
-      = render 'form'
+      = form_for(@participant) do |f|
+
+        .row
+          .col-xs-12
+            = render 'layouts/flash'
+          .col-xs-12
+            %h1 Ihre persönliche Daten
+
+        .row
+          .col-sm-6
+            Anrede *:
+          .col-sm-6
+            = f.select :sex, ['Herr', 'Frau'], {prompt: 'Bitte wählen'}, {class: 'form-control'}
+
+        .row
+          .col-sm-6
+            Akademischer Titel *:
+          .col-sm-6
+            = f.text_field :title, placeholder: 'z.B. Dr.', class: 'form-control'
+
+        .row
+          .col-sm-6
+            Vorname *:
+          .col-sm-6
+            = f.text_field :first_name, class: 'form-control'
+
+        .row
+          .col-sm-6
+            Nachname *:
+          .col-sm-6
+            = f.text_field :last_name, class: 'form-control'
+
+        .row
+          .col-sm-6
+            Institution/Organisation *:
+          .col-sm-6
+            = f.text_field :organisation, class: 'form-control'
+
+        .row
+          .col-sm-6
+            Themenschwerpunkte/Projekte *:
+          .col-sm-6
+            = f.text_field :projects, class: 'form-control'
+
+        .row
+          .col-sm-6
+            Position *:
+          .col-sm-6
+            = f.text_field :projects, placeholder: 'z.B. wiss. Mitarbeiter', class: 'form-control'
+
+        .row
+          .col-sm-6
+            Straße und Hausnummer *:
+          .col-sm-6
+            = f.text_field :address, class: 'form-control'
+
+        .row
+          .col-sm-6
+            Postleitzahl *:
+          .col-sm-6
+            = f.text_field :postal_code, class: 'form-control'
+
+        .row
+          .col-sm-6
+            Ort *:
+          .col-sm-6
+            = f.text_field :city, class: 'form-control'
+
+        .row
+          .col-sm-6
+            Land *:
+          .col-sm-6
+            = f.select :country, ISO3166::Country.all_translated('DE').sort_by{ |c| c.downcase }, {prompt: 'Bitte wählen'}, {class: 'form-control'}
+
+        .row
+          .col-sm-6
+            Email *:
+          .col-sm-6
+            = f.text_field :email, class: 'form-control'
+
+        .row
+          .col-sm-6
+            Email Wdh. *:
+          .col-sm-6
+            = f.text_field :email_confirmation, class: 'form-control'
+
+        .row
+          .col-sm-6
+            Telefonnummer:
+          .col-sm-6
+            = f.text_field :telephone, class: 'form-control'
+
+        .row
+          .col-sm-6
+            Welcher Akteursgruppe würden Sie sich zuordnen?:
+          .col-sm-6
+            = f.select :group, ['Wissenschaft', 'Wirtschaft', 'Politik', 'Zivilgesellschaft', 'Sonstiges'], {prompt: 'Bitte wählen'}, {class: 'form-control'}
+
+        .row
+          .col-sm-12
+            .checkbox
+              %label
+                = f.check_box :accepted_data_storage
+                Ich bin damit einverstanden, dass meine personenbezogenen Daten zur ordnungsmäßen Durchführung der Veranstaltung gespeichert werden. *
+
+        .row
+          .col-xs-12.margin-below
+            = hidden_field_tag :page, 'page_1'
+            = f.submit 'weiter zu Seite 2', class: 'btn btn-success'

@@ -51,6 +51,10 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    countries (1.2.5)
+      currencies (~> 0.4.2)
+      i18n_data (~> 0.7.0)
+    currencies (0.4.2)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -74,6 +78,7 @@ GEM
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
     i18n (0.8.1)
+    i18n_data (0.7.0)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
       multi_json (~> 1.2)
@@ -175,6 +180,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.2.0.0)
   byebug
   coffee-rails (~> 4.1.0)
+  countries
   faker
   figaro
   haml
