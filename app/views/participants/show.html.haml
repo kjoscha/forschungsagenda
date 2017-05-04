@@ -2,7 +2,6 @@
   .row
     .col-sm-8.col-sm-offset-2.form
       = form_for(@participant) do |f|
-
         .row
           .col-xs-12
             = render 'layouts/flash'
@@ -41,6 +40,18 @@
 
         .row
           .col-sm-6
+            Themenschwerpunkte/Projekte *:
+          .col-sm-6
+            = f.text_field :projects, class: 'form-control'
+
+        .row
+          .col-sm-6
+            Position *:
+          .col-sm-6
+            = f.text_field :projects, placeholder: 'z.B. wiss. Mitarbeiter', class: 'form-control'
+
+        .row
+          .col-sm-6
             Straße und Hausnummer *:
           .col-sm-6
             = f.text_field :address, class: 'form-control'
@@ -61,7 +72,7 @@
           .col-sm-6
             Land *:
           .col-sm-6
-            = f.text_field :country, class: 'form-control'
+            = f.select :country, ISO3166::Country.all_translated('DE').sort_by{ |c| c.downcase }, {prompt: 'Bitte wählen'}, {class: 'form-control'}
 
         .row
           .col-sm-6
@@ -82,114 +93,139 @@
             = f.text_field :telephone, class: 'form-control'
 
         .row
+          .col-sm-6
+            Welcher Akteursgruppe würden Sie sich zuordnen? *
+          .col-sm-6
+            = f.select :group, ['Wissenschaft', 'Wirtschaft', 'Politik', 'Zivilgesellschaft', 'Sonstiges'], {prompt: 'Bitte wählen'}, {class: 'form-control'}
+
+        .row
           .col-sm-12
             .checkbox
               %label
                 = f.check_box :accepted_data_storage
-                Ich bin damit einverstanden, dass meine personenbezogenen Daten zur ordnungsmäßen Durchführung der Veranstaltung gespeichert werden. *
+                %i Ich bin damit einverstanden, dass meine personenbezogenen Daten zur ordnungsmäßen Durchführung der Veranstaltung gespeichert werden. *
 
         .row
           .col-xs-12
             = render 'layouts/flash'
 
           .col-xs-12
-            %h1 Donnerstag
+            %h1 Programm
+            %h1 Donnerstag, 22.06.2017
 
         .row
           .col-xs-12
+            %h4 09:30 - 10:30 Uhr Einlass & Registrierung
             %h4 10:00 - 12:30 Uhr Eröffnung und Vorstellung des Agendaprozesses und der Berliner Erklärung *
-            %div
+            %label
               = f.radio_button :do_opening, true
-              = f.label :do_opening, 'Ja, ich nehme teil', value: true
-            %div
+              Ja, ich nehme teil
+            %br
+            %label
               = f.radio_button :do_opening, false
-              = f.label :do_opening, 'Nein, ich nehme nicht teil', value: false
+              Nein, ich nehme nicht teil
 
         .row
           .col-xs-12
             %h4 12:30 - 13:30 Uhr Mittagessen *
-            %div
+            %label
               = f.radio_button :do_lunch, true
-              = f.label :do_lunch, 'Ja, ich nehme teil', value: true
-            %div
+              Ja, ich nehme teil
+            %br
+            %label
               = f.radio_button :do_lunch, false
-              = f.label :do_lunch, 'Nein, ich nehme nicht teil', value: false
+              Nein, ich nehme nicht teil
 
         .row
           .col-xs-12
             %h4 13:30 - 16:30 Uhr Workshops *
+            %p Ich möchte an folgendem Workshop teilnehmen:
             %label
               = f.radio_button :do_1330_workshop, 1
               Workshop I: Sektorenkopplung Energie & Verkehr
+            %br
             %label
               = f.radio_button :do_1330_workshop, 2
-              = f.label :do_1330_workshop, 'Workshop II: Zusammenspiel von Logistik und Personenverkehr', value: 2
-            %div
+              Workshop II: Zusammenspiel von Logistik und Personenverkehr
+            %br
+            %label
               = f.radio_button :do_1330_workshop, 3
-              = f.label :do_1330_workshop, 'Workshop III: Smart Data – Digitale Präsenz und realer Raum', value: 3
-            %div
+              Workshop III: Smart Data – Digitale Präsenz und realer Raum
+            %label
               = f.radio_button :do_1330_workshop, 4
-              = f.label :do_1330_workshop, 'Workshop IV: Formate und Methoden umsetzungsorientierter Forschung', value: 4
-            %div
+              Workshop IV: Formate und Methoden umsetzungsorientierter Forschung
+            %br
+            %label
               = f.radio_button :do_1330_workshop, 0
-              = f.label :do_1330_workshop, 'Ich nehme nicht teil', value: 0
+              Ich nehme nicht teil
 
         .row
           .col-xs-12
+            %h4 16:30 – 17:00 Kaffeepause
+            %h4 17:00 - 18:30 Uhr Vorstellung der Ergebnisse aus den Workshops und Verabschiedung der Berliner Erklärung
             %h4 18:30 - 22:00 Uhr Konferenzdinner *
-            %div
+            %label
               = f.radio_button :do_dinner, true
-              = f.label :do_dinner, 'Ja, ich nehme teil', value: true
-            %div
+              Ja, ich nehme teil
+            %br
+            %label
               = f.radio_button :do_dinner, false
-              = f.label :do_dinner, 'Nein, ich nehme nicht teil', value: false
+              Nein, ich nehme nicht teil
 
         .row
           .col-xs-12
-            %h1 Freitag
+            %h1 Freitag, 23. Juni
 
         .row
           .col-xs-12
+            %h4 08:30 - 09:30 Uhr Einlass & Registrierung
+            %h4 09:30 - 10:15 Uhr Eröffnung und Keynote Speech
             %h4 10:15 – 11:45 Uhr Parallele Workshops *
-            %div
+            %p Ich möchte an folgendem Workshop teilnehmen:
+            %label
               = f.radio_button :fr_1015_workshop, 1
-              = f.label :fr_1015_workshop, 'Workshop I: Start-up meets Wissenschaft', value: 1
-            %div
+              Workshop I: Start-up meets Wissenschaft
+            %br
+            %label
               = f.radio_button :fr_1015_workshop, 2
-              = f.label :fr_1015_workshop, 'Workshop II: Internationale Perspektive zur Forschung im Bereich nachhaltiger Mobilität', value: 2
-            %div
+              Workshop II: Internationale Perspektive zur Forschung im Bereich nachhaltiger Mobilität
+            %br
+            %label
               = f.radio_button :fr_1015_workshop, 3
-              = f.label :fr_1015_workshop, 'Workshop III: Weitere Agendaprozesse im Bereich Mobilität', value: 3
-            %div
+              Workshop III: Weitere Agendaprozesse im Bereich Mobilität
+            %br
+            %label
               = f.radio_button :fr_1015_workshop, 0
-              = f.label :fr_1015_workshop, 'Ich nehme nicht teil', value: 0
+              Ich nehme nicht teil
 
         .row
           .col-xs-12
+            %h4 11:45 – 12:15 Uhr Pause
+            %h4 12:15 – 13:30 Uhr Abschlussdiskussion und Ausblick auf die Forschungsagenda
             %h4 13:30 - 14:30 Uhr Mittagessen *
-            %div
+            %label
               = f.radio_button :fr_lunch, true
-              = f.label :fr_lunch, 'Ja, ich nehme teil', value: true
-            %div
+              Ja, ich nehme teil
+            %br
+            %label
               = f.radio_button :fr_lunch, false
-              = f.label :fr_lunch, 'Nein, ich nehme nicht teil', value: false
+              Nein, ich nehme nicht teil
 
         .row
           .col-xs-12
             = render 'layouts/flash'
           .col-xs-12
-            %h1 weitere Angaben
+            %h1 Weitere Angaben
             Im Rahmen der Agendakonferenz möchten wir eine Ausstellung der Teilnehmerinnen und Teilnehmer erstellen, um die Vernetzung untereinander zu fördern. Wir würden uns freuen, wenn Sie dafür die folgenden Fragen beantworten würden.
-
         .row
           .col-xs-12
-            1. Was sind Ihre Themenschwerpunkte oder Projekte in Bezug auf das Themenfeld nachhaltige urbane Mobilität? (Bitte nicht mehr als 4 Punkte)
+            %h4 1. Was sind Ihre Themenschwerpunkte oder Projekte in Bezug auf das Themenfeld nachhaltige urbane Mobilität? (Bitte nicht mehr als 4 Punkte)
           .col-xs-12
             = f.text_area :focus, class: 'form-control'
 
         .row
           .col-xs-12
-            2. Welches der folgenden Fortbewegungsmittel nutzen Sie am häufigsten?
+            %h4 2. Welches der folgenden Fortbewegungsmittel nutzen Sie am häufigsten?
           .col-xs-12
             - ['Bus und Bahn', 'Auto', 'zu Fuß', 'Fahrrad'].each do |t|
               %div
@@ -198,7 +234,7 @@
 
         .row
           .col-xs-12
-            3. Was ist Ihrer Meinung nach in aller Kürze der wichtigste Forschungs- oder Handlungsbedarf für eine nachhaltige urbane Mobilität der Zukunft?
+            %h4 3. Was ist Ihrer Meinung nach in aller Kürze der wichtigste Forschungs- oder Handlungsbedarf für eine nachhaltige urbane Mobilität der Zukunft?
           .col-xs-12
             = f.text_area :slogan, class: 'form-control'
 

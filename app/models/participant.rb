@@ -13,6 +13,7 @@ class Participant < ActiveRecord::Base
   validates :country, length: { minimum: 3 }
   validates :address, length: { minimum: 5 }
 
+  validates :postal_code, numericality: {only_integer: true}
   validates :email,
     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i },
     uniqueness: true
