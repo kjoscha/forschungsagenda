@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Teilnehmer_innen">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Anrede</Data></Cell>
+        <Cell><Data ss:Type="String">Titel</Data></Cell>
+        <Cell><Data ss:Type="String">Vorname</Data></Cell>
+        <Cell><Data ss:Type="String">Nachname</Data></Cell>
+        <Cell><Data ss:Type="String">Organisation</Data></Cell>
+        <Cell><Data ss:Type="String">Abteilung</Data></Cell>
+        <Cell><Data ss:Type="String">Projekte</Data></Cell>
+        <Cell><Data ss:Type="String">Position</Data></Cell>
+        <Cell><Data ss:Type="String">Akteursgruppe</Data></Cell>
+        <Cell><Data ss:Type="String">Addresse</Data></Cell>
+        <Cell><Data ss:Type="String">PLZ</Data></Cell>
+        <Cell><Data ss:Type="String">Ort</Data></Cell>
+        <Cell><Data ss:Type="String">Land</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Telefon</Data></Cell>
+        <Cell><Data ss:Type="String">Do Erfoeffnung</Data></Cell>
+        <Cell><Data ss:Type="String">Do Mittagessen</Data></Cell>
+        <Cell><Data ss:Type="String">Do 13:30 Uhr Workshop</Data></Cell>
+        <Cell><Data ss:Type="String">Do Abendessen</Data></Cell>
+        <Cell><Data ss:Type="String">Fr 10:15 Uhr Workshop</Data></Cell>
+        <Cell><Data ss:Type="String">Fr Mittagessen </Data></Cell>
+        <Cell><Data ss:Type="String">Schwerpunkte</Data></Cell>
+        <Cell><Data ss:Type="String">Verkehrsmittel</Data></Cell>
+        <Cell><Data ss:Type="String">Handlungsbedarf</Data></Cell>
+        <Cell><Data ss:Type="String">Motto</Data></Cell>
+      </Row>
+    <% @participants.each do |p| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= p.sex %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.title %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.first_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.last_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.organisation %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.division %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.projects %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.position %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.group %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.address %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.postal_code %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.city %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.country %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.email %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.telephone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.do_opening ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.do_lunch ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.do_1330_workshop ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.do_dinner ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.fr_1015_workshop ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.fr_lunch ? 'ja' : 'nein' %> </Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.focus %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.transport %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.measure %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.slogan %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

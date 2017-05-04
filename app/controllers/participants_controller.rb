@@ -3,6 +3,10 @@ class ParticipantsController < ApplicationController
 
   def index
     @participants = Participant.all.order(:organisation).order(:last_name)
+    respond_to do |format|
+      format.html
+      format.xls { headers['Content-Disposition'] = "attachment; filename=\"teilnehmer_innenliste - #{Date.today.to_s}.xls\"" }
+    end
   end
 
   def new

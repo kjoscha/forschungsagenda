@@ -2,6 +2,7 @@
   .row
     .col-xs-12
       = render 'layouts/flash'
+      %p= link_to 'Liste als Excel-Datei herunterladen', participants_path(format: 'xls') 
       %h1
         = @participants.count
         Teilnehmer/innen angemeldet
