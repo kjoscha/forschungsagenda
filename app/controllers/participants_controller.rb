@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-  before_filter :authenticate, only: [:index, :show, :update]
+  before_filter :authenticate, only: [:index, :show]
 
   def index
     @participants = Participant.all.order(:organisation).order(:last_name)
