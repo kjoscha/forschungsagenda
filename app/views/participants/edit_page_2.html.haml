@@ -8,10 +8,12 @@
             = render 'layouts/flash'
 
           .col-xs-12
-            %h1 Donnerstag
+            %h1 Programm
+            %h1 Donnerstag, 22.06.2017
 
         .row
           .col-xs-12
+            %h4 09:30 - 10:30 Uhr Einlass & Registrierung
             %h4 10:00 - 12:30 Uhr Eröffnung und Vorstellung des Agendaprozesses und der Berliner Erklärung *
             %label
               = f.radio_button :do_opening, true
@@ -35,6 +37,7 @@
         .row
           .col-xs-12
             %h4 13:30 - 16:30 Uhr Workshops *
+            %p Ich möchte an folgendem Workshop teilnehmen:
             %label
               = f.radio_button :do_1330_workshop, 1
               Workshop I: Sektorenkopplung Energie & Verkehr
@@ -56,6 +59,8 @@
 
         .row
           .col-xs-12
+            %h4 16:30 – 17:00 Kaffeepause
+            %h4 17:00 - 18:30 Uhr Vorstellung der Ergebnisse aus den Workshops und Verabschiedung der Berliner Erklärung
             %h4 18:30 - 22:00 Uhr Konferenzdinner *
             %label
               = f.radio_button :do_dinner, true
@@ -67,11 +72,14 @@
 
         .row
           .col-xs-12
-            %h1 Freitag
+            %h1 Freitag, 23. Juni
 
         .row
           .col-xs-12
+            %h4 08:30 - 09:30 Uhr Einlass & Registrierung
+            %h4 09:30 - 10:15 Uhr Eröffnung und Keynote Speech
             %h4 10:15 – 11:45 Uhr Parallele Workshops *
+            %p Ich möchte an folgendem Workshop teilnehmen:
             %label
               = f.radio_button :fr_1015_workshop, 1
               Workshop I: Start-up meets Wissenschaft
@@ -90,6 +98,8 @@
 
         .row
           .col-xs-12
+            %h4 11:45 – 12:15 Uhr Pause
+            %h4 12:15 – 13:30 Uhr Abschlussdiskussion und Ausblick auf die Forschungsagenda
             %h4 13:30 - 14:30 Uhr Mittagessen *
             %label
               = f.radio_button :fr_lunch, true

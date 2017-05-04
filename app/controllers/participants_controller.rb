@@ -36,6 +36,7 @@ class ParticipantsController < ApplicationController
     @participant = Participant.find(params[:id])
     if @participant.update_attributes(participant_params)
       if params[:page] == 'update'
+        flash[:success] = 'Erfolgreich aktualisiert.'
         redirect_to participants_path
       elsif params[:page] == 'page_1'
         redirect_to page_2_path
@@ -53,7 +54,7 @@ class ParticipantsController < ApplicationController
         flash.now[:danger] = 'Bitte gültige Angaben machen und alle Pflichtfelder ausfüllen.'
         render :new
       elsif params[:page] == 'page_2'
-        flash.now[:danger] = 'Bitte Teilnahme für alle Veranstaltungen wählen'
+        flash.now[:danger] = 'Bitte Teilnahme für alle Veranstaltungen wählen.'
         render 'edit_page_2'
       elsif params[:page] == 'page_3'
         flash.now[:danger] = 'Bitte gültige Angaben machen und alle Pflichtfelder ausfüllen.'

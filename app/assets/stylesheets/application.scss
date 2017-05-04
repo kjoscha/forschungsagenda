@@ -44,6 +44,20 @@ h1 {
   .field_with_errors {
     border: 1px solid red;
   }
+
+  h4 {
+    fonts-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+
+  label {
+    font-weight: normal;
+  }
+
+  textarea {
+    resize: vertical;
+  }
 }
 
 .form-control {
