@@ -20,6 +20,7 @@ class ParticipantsController < ApplicationController
   def create
     @participant = Participant.new(participant_params)
     if @participant.save
+      session[:user_id] = @participant.id
       MessageMailer.confirmation_mail(@participant).deliver_now
       redirect_to page_2_path(@participant.id)
     else
@@ -34,6 +35,7 @@ class ParticipantsController < ApplicationController
 
   def update
     @participant = Participant.find(params[:id])
+    admin_or_session?
     if @participant.update_attributes(participant_params)
       if params[:page] == 'update'
         flash[:success] = 'Erfolgreich aktualisiert.'
@@ -65,8 +67,13 @@ class ParticipantsController < ApplicationController
 
   private
 
+  def admin_or_session?
+    session[:user_id] == @participant.id || authenticate
+  end
+
   def edit
     @participant = Participant.find(params[:id])
+    admin_or_session?
   end
 
   def participant_params
