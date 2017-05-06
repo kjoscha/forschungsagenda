@@ -21,4 +21,24 @@ class Participant < ActiveRecord::Base
     format: { with: /\A((?![a-zA-Z]).){3,20}\z/ }, if: 'telephone.present?'
 
   mount_uploader :portrait, PortraitUploader
+
+  def complete
+    true unless [
+      first_name,
+      last_name,
+      email,
+      organisation,
+      address,
+      postal_code,
+      city,
+      country,
+      accepted_data_storage,
+      do_1330_workshop,
+      fr_1015_workshop,
+      do_opening,
+      do_lunch,
+      do_dinner,
+      fr_lunch,
+    ].include?(nil)
+  end
 end
