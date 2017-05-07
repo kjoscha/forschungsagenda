@@ -21,12 +21,19 @@ class Participant < ActiveRecord::Base
 
   mount_uploader :portrait, PortraitUploader
 
-  validate :unique_email
+  before_create :overwrite_not_completed
 
-  def unique_email
+  validate :email_not_used_or_not_complete
+
+  def email_not_used_or_not_complete
     if Participant.completed.map(&:email).include? email
       errors[:base] << 'Email bereits angemeldet!'
     end
+  end
+
+  def overwrite_not_completed
+    existing_entry = Participant.find_by(email: email)
+    existing_entry.delete if existing_entry && !existing_entry.complete
   end
 
   def self.completed
