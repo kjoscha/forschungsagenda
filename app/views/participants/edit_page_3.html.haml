@@ -19,7 +19,7 @@
           .col-xs-12
             %h4 2. Welches der folgenden Verkehrsmittel nutzen Sie persönlich in der Stadt am liebsten?
           .col-xs-12
-            - ['das Auto', 'das Fahrrad', 'Busse im öffentlichen Verkehr', 'Bahnen im öffentlichen Verkehr', 'Car- und Bikesharing, ein anderes'].each do |t|
+            - ['das Auto', 'das Fahrrad', 'Busse im öffentlichen Verkehr', 'Bahnen im öffentlichen Verkehr', 'Car- und Bikesharing', 'ein anderes'].each do |t|
               %div
                 = f.radio_button :transport, t
                 = f.label :transport, t, value: t

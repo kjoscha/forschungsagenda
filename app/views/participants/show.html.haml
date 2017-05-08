@@ -82,13 +82,10 @@
             = f.text_field :telephone, class: 'form-control'
 
         .row
-          .col-xs-12
-            %h4 2. Welches der folgenden Verkehrsmittel nutzen Sie persönlich in der Stadt am liebsten?
-          .col-xs-12
-            - ['das Auto', 'das Fahrrad', 'Busse im öffentlichen Verkehr', 'Bahnen im öffentlichen Verkehr', 'Car- und Bikesharing, ein anderes'].each do |t|
-              %div
-                = f.radio_button :transport, t
-                = f.label :transport, t, value: t
+          .col-sm-6
+            Welcher Akteursgruppe würden Sie sich zuordnen? *
+          .col-sm-6
+            = f.select :group, ['Wissenschaft', 'Wirtschaft', 'Politik', 'Zivilgesellschaft', 'Sonstiges'], {prompt: 'Bitte wählen'}, {class: 'form-control'}
 
         .row
           .col-sm-12
@@ -195,9 +192,9 @@
 
         .row
           .col-xs-12
-            %h4 2. Welches der folgenden Fortbewegungsmittel nutzen Sie am häufigsten?
+            %h4 2. Welches der folgenden Verkehrsmittel nutzen Sie persönlich in der Stadt am liebsten?
           .col-xs-12
-            - ['Bus und Bahn', 'Auto', 'zu Fuß', 'Fahrrad'].each do |t|
+            - ['das Auto', 'das Fahrrad', 'Busse im öffentlichen Verkehr', 'Bahnen im öffentlichen Verkehr', 'Car- und Bikesharing', 'ein anderes'].each do |t|
               %div
                 = f.radio_button :transport, t
                 = f.label :transport, t, value: t
