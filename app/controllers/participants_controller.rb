@@ -47,7 +47,7 @@ class ParticipantsController < ApplicationController
     if @participant.update_attributes(participant_params)
       if params[:page] == 'update'
         flash[:success] = 'Erfolgreich aktualisiert.'
-        redirect_to participants_path
+        redirect_to admin_path
       elsif params[:page] == 'page_1'
         redirect_to page_2_path
       elsif params[:page] == 'page_2'
