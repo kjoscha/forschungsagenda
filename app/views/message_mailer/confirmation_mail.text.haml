@@ -6,8 +6,8 @@
 wir freuen uns, dass Sie sich für die Agendakonferenz Wege zur Mobilitätswende - Forschung und Innovation für eine nachhaltige urbane Mobilität am 22. und 23. Juni in der Hauptstadtrepräsentanz der Deutschen Telekom in Berlin angemeldet haben
 \
 Sie haben sich für die folgenden Workshops angemeldet:
-Donnerstag 22. Juni 2017: #{@participant.do_1330_workshop_name}
-Freitag 23. Juni 2017: #{@participant.fr_1015_workshop_name}
+Donnerstag 22. Juni 2017: #{@participant.do_1330_workshop_name || 'nicht angemeldet'}
+Freitag 23. Juni 2017: #{@participant.fr_1015_workshop_name || 'nicht angemeldet'}
 \
 Laufend aktualisierte Informationen zur Konferenz erhalten Sie hier: http://www.fona.de/urbanmobil
 \
@@ -25,7 +25,7 @@ Institution/Organisation:
 -if @participant.position.present?
   Position:
   = @participant.position
-\
+  \
 Straße und Hausnummer:
 = @participant.address
 \
@@ -44,7 +44,7 @@ E-Mail:
 - if @participant.telephone.present?
   Telefonnummer:
   = @participant.telephone
-\
+  \
 Akteursgruppe:
 Wissenschaft
 \
