@@ -15,8 +15,7 @@
             .pull-right
               = link_to participant_path(p) do
                 .glyphicon.glyphicon-eye-open
+              = link_to participant_path(p), method: 'delete', data: { confirm: 'Wirklich löschen?' } do
+                .glyphicon.glyphicon-trash
           .panel-body
-            - unless p.complete
-              ANMELDUNG NICHT BEENDET
-            - else
-              = p.organisation
+            = p.organisation

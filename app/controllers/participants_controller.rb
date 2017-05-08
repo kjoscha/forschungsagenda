@@ -74,6 +74,14 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def destroy
+    @participant = Participant.find(params[:id])
+    if @participant.destroy
+      flash[:success] = 'Erfolgreich gelöscht.'
+      redirect_to :back
+    end
+  end
+
   private
 
   def admin_or_session?
