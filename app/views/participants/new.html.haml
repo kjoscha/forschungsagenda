@@ -7,7 +7,7 @@
           .col-xs-12
             = render 'layouts/flash'
           .col-xs-12
-            %h1 Ihre persönliche Daten
+            %h1 Ihre persönlichen Daten
 
         .row
           .col-sm-6
@@ -41,15 +41,9 @@
 
         .row
           .col-sm-6
-            Themenschwerpunkte/Projekte *:
+            Position:
           .col-sm-6
-            = f.text_field :projects, class: 'form-control'
-
-        .row
-          .col-sm-6
-            Position *:
-          .col-sm-6
-            = f.text_field :projects, placeholder: 'z.B. wiss. Mitarbeiter', class: 'form-control'
+            = f.text_field :position, placeholder: 'z.B. wiss. Mitarbeiter', class: 'form-control'
 
         .row
           .col-sm-6

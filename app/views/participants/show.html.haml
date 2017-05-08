@@ -2,11 +2,12 @@
   .row
     .col-sm-8.col-sm-offset-2.form
       = form_for(@participant) do |f|
+
         .row
           .col-xs-12
             = render 'layouts/flash'
           .col-xs-12
-            %h1 Ihre persönliche Daten
+            %h1 Persönliche Daten
 
         .row
           .col-sm-6
@@ -40,13 +41,7 @@
 
         .row
           .col-sm-6
-            Themenschwerpunkte/Projekte *:
-          .col-sm-6
-            = f.text_field :projects, class: 'form-control'
-
-        .row
-          .col-sm-6
-            Position *:
+            Position:
           .col-sm-6
             = f.text_field :projects, placeholder: 'z.B. wiss. Mitarbeiter', class: 'form-control'
 
@@ -82,21 +77,18 @@
 
         .row
           .col-sm-6
-            Email Wdh. *:
-          .col-sm-6
-            = f.text_field :email_confirmation, class: 'form-control'
-
-        .row
-          .col-sm-6
             Telefonnummer:
           .col-sm-6
             = f.text_field :telephone, class: 'form-control'
 
         .row
-          .col-sm-6
-            Welcher Akteursgruppe würden Sie sich zuordnen? *
-          .col-sm-6
-            = f.select :group, ['Wissenschaft', 'Wirtschaft', 'Politik', 'Zivilgesellschaft', 'Sonstiges'], {prompt: 'Bitte wählen'}, {class: 'form-control'}
+          .col-xs-12
+            %h4 2. Welches der folgenden Verkehrsmittel nutzen Sie persönlich in der Stadt am liebsten?
+          .col-xs-12
+            - ['das Auto', 'das Fahrrad', 'Busse im öffentlichen Verkehr', 'Bahnen im öffentlichen Verkehr', 'Car- und Bikesharing, ein anderes'].each do |t|
+              %div
+                = f.radio_button :transport, t
+                = f.label :transport, t, value: t
 
         .row
           .col-sm-12

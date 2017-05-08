@@ -2,7 +2,7 @@ class ParticipantsController < ApplicationController
   before_filter :authenticate, only: [:index, :show]
 
   def index
-    @participants = Participant.all.order(:organisation).order(:last_name)
+    @participants = Participant.completed.sort_by(&:organisation).sort_by(&:last_name)
     respond_to do |format|
       format.html
       format.xls { headers['Content-Disposition'] = "attachment; filename=\"teilnehmer_innenliste - #{Date.today.to_s}.xls\"" }
@@ -25,11 +25,15 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new(participant_params)
     if @participant.save
       session[:user_id] = @participant.id
-      MessageMailer.confirmation_mail(@participant).deliver_now
       redirect_to page_2_path(@participant.id)
     else
-      flash.now[:danger] = 'Bitte gültige Angaben machen und alle Pflichtfelder ausfüllen.'
-      render :new
+      if @participant.errors.messages[:email]
+        flash.now[:danger] = 'Bitte gültige und nicht bereits angemeldete Emailadresse angeben.'
+        render :new
+      else
+        flash.now[:danger] = 'Bitte gültige Angaben machen und alle Pflichtfelder ausfüllen.'
+        render :new
+      end
     end
   end
 
@@ -49,6 +53,7 @@ class ParticipantsController < ApplicationController
       elsif params[:page] == 'page_2'
         redirect_to page_3_path
       elsif params[:page] == 'page_3'
+        MessageMailer.confirmation_mail(@participant).deliver_now
         flash[:success] = 'Erfolgreich angemeldet. Eine Bestätigungsemail wurde an Ihr Emailadresse versandt.'
         redirect_to root_path
       end

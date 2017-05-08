@@ -15,12 +15,30 @@ class Participant < ActiveRecord::Base
 
   validates :postal_code, numericality: {only_integer: true}
   validates :email,
-    format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i },
-    uniqueness: true
+    format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
   validates :telephone,
     format: { with: /\A((?![a-zA-Z]).){3,20}\z/ }, if: 'telephone.present?'
 
   mount_uploader :portrait, PortraitUploader
+
+  before_create :overwrite_not_completed
+
+  validate :email_not_used_or_not_complete, on: :create
+
+  def email_not_used_or_not_complete
+    if Participant.completed.map(&:email).include? email
+      errors[:email] << 'Error'
+    end
+  end
+
+  def overwrite_not_completed
+    existing_entry = Participant.find_by(email: email)
+    existing_entry.delete if existing_entry && !existing_entry.complete
+  end
+
+  def self.completed
+    Participant.all.find_all { |p| p.complete }
+  end
 
   def complete
     true unless [
