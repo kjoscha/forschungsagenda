@@ -59,4 +59,30 @@ class Participant < ActiveRecord::Base
       fr_lunch,
     ].include?(nil)
   end
+
+  def do_1330_workshop_name
+    do_1330_workshops[do_1330_workshop]
+  end
+
+  def fr_1015_workshop_name
+    fr_1015_workshops[fr_1015_workshop]
+  end
+
+  def do_1330_workshops
+    {
+      1 => 'Workshop I: Sektorenkopplung Energie & Verkehr',
+      2 => 'Workshop II: Zusammenspiel von Logistik und Personenverkehr',
+      3 => 'Workshop III: Smart Data – Digitale Präsenz und realer Raum',
+      4 => 'Workshop IV: Formate und Methoden umsetzungsorientierter Forschung'
+    }
+  end
+
+  def fr_1015_workshops
+    {
+      1 => 'Workshop I: Sektorenkopplung Energie & Verkehr',
+      2 => 'Workshop II: Zusammenspiel von Logistik und Personenverkehr',
+      3 => 'Workshop III: Smart Data – Digitale Präsenz und realer Raum',
+      4 => 'Workshop IV: Formate und Methoden umsetzungsorientierter Forschung'
+    }
+  end
 end

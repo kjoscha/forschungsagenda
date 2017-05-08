@@ -38,21 +38,11 @@
           .col-xs-12
             %h4 13:30 - 16:30 Uhr Workshops *
             %p Ich möchte an folgendem Workshop teilnehmen:
-            %label
-              = f.radio_button :do_1330_workshop, 1
-              Workshop I: Sektorenkopplung Energie & Verkehr
-            %br
-            %label
-              = f.radio_button :do_1330_workshop, 2
-              Workshop II: Zusammenspiel von Logistik und Personenverkehr
-            %br
-            %label
-              = f.radio_button :do_1330_workshop, 3
-              Workshop III: Smart Data – Digitale Präsenz und realer Raum
-            %label
-              = f.radio_button :do_1330_workshop, 4
-              Workshop IV: Formate und Methoden umsetzungsorientierter Forschung
-            %br
+            - (1..4).each do |i|
+              %label
+                = f.radio_button :do_1330_workshop, i
+                = @participant.do_1330_workshops[i]
+              %br
             %label
               = f.radio_button :do_1330_workshop, 0
               Ich nehme nicht teil
@@ -80,18 +70,11 @@
             %h4 09:30 - 10:15 Uhr Eröffnung und Keynote Speech
             %h4 10:15 – 11:45 Uhr Parallele Workshops *
             %p Ich möchte an folgendem Workshop teilnehmen:
-            %label
-              = f.radio_button :fr_1015_workshop, 1
-              Workshop I: Start-up meets Wissenschaft
-            %br
-            %label
-              = f.radio_button :fr_1015_workshop, 2
-              Workshop II: Internationale Perspektive zur Forschung im Bereich nachhaltiger Mobilität
-            %br
-            %label
-              = f.radio_button :fr_1015_workshop, 3
-              Workshop III: Weitere Agendaprozesse im Bereich Mobilität
-            %br
+            - (1..4).each do |i|
+              %label
+                = f.radio_button :fr_1015_workshop, i
+                = @participant.fr_1015_workshops[i]
+              %br
             %label
               = f.radio_button :fr_1015_workshop, 0
               Ich nehme nicht teil
