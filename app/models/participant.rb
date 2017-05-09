@@ -79,10 +79,9 @@ class Participant < ActiveRecord::Base
 
   def fr_1015_workshops
     {
-      1 => 'Workshop I: Sektorenkopplung Energie & Verkehr',
-      2 => 'Workshop II: Zusammenspiel von Logistik und Personenverkehr',
-      3 => 'Workshop III: Smart Data – Digitale Präsenz und realer Raum',
-      4 => 'Workshop IV: Formate und Methoden umsetzungsorientierter Forschung'
+      1 => 'Workshop I: Start-up meets Wissenschaft',
+      2 => 'Workshop II: Internationale Perspektive zur Forschung im Bereich nachhaltiger Mobilität',
+      3 => 'Workshop III: Weitere Agendaprozesse im Bereich Mobilität',
     }
   end
 end

@@ -111,3 +111,27 @@ h1 {
     }
   }
 }
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 50px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  background-color: grey;
+  a {
+    color: lightgrey;
+    line-height: 40px;
+    vertical-align: middle;
+  }
+}
