@@ -17,6 +17,6 @@
                 .glyphicon.glyphicon-eye-open
               = link_to participant_path(p), method: 'delete', data: { confirm: 'Wirklich löschen?' } do
                 .glyphicon.glyphicon-trash
-          .panel-body
+          .panel-body.participant-info
             = p.organisation
             = image_tag p.portrait

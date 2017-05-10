@@ -14,7 +14,7 @@ visualization/
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
-/public/assets
+/public/*
 .sass-cache
 tmp/**/*
 
