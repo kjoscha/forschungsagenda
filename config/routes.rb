@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'participants/:id/page_3', to: 'participants#edit_page_3', as: 'page_3'
 
   get '/contact', to: 'pages#contact', as: :contact
+  get '/imprint', to: 'pages#imprint', as: :imprint
 end
