@@ -3,7 +3,7 @@
 - else
   Sehr geehrter Herr #{@participant.last_name},
 \
-wir freuen uns, dass Sie sich für die Agendakonferenz Wege zur Mobilitätswende - Forschung und Innovation für eine nachhaltige urbane Mobilität am 22. und 23. Juni in der Hauptstadtrepräsentanz der Deutschen Telekom in Berlin angemeldet haben
+wir freuen uns, dass Sie sich für die Agendakonferenz Wege zur Mobilitätswende - Forschung und Innovation für eine nachhaltige urbane Mobilität am 22. und 23. Juni in der Hauptstadtrepräsentanz der Deutschen Telekom in Berlin angemeldet haben.
 \
 Sie haben sich für die folgenden Workshops angemeldet:
 Donnerstag 22. Juni 2017: #{@participant.do_1330_workshop_name || 'nicht angemeldet'}
@@ -45,9 +45,10 @@ E-Mail:
   Telefonnummer:
   = @participant.telephone
   \
-Akteursgruppe:
-Wissenschaft
-\
+- if @participant.group.present?
+  Akteursgruppe:
+  = @participant.group
+  \
 Wir freuen uns auf Ihr Kommen. 
 Ihr Projektteam Agendaprozess Nachhaltige Urbane Mobilität
 \
