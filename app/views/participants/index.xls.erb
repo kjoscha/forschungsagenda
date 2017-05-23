@@ -23,9 +23,15 @@
         <Cell><Data ss:Type="String">Telefon</Data></Cell>
         <Cell><Data ss:Type="String">Do Erfoeffnung</Data></Cell>
         <Cell><Data ss:Type="String">Do Mittagessen</Data></Cell>
-        <Cell><Data ss:Type="String">Do 13:30 Uhr Workshop</Data></Cell>
+        <Cell><Data ss:Type="String">Do 13:30 Uhr Workshop 1</Data></Cell>
+        <Cell><Data ss:Type="String">Do 13:30 Uhr Workshop 2</Data></Cell>
+        <Cell><Data ss:Type="String">Do 13:30 Uhr Workshop 3</Data></Cell>
+        <Cell><Data ss:Type="String">Do 13:30 Uhr Workshop 4</Data></Cell>
         <Cell><Data ss:Type="String">Do Abendessen</Data></Cell>
-        <Cell><Data ss:Type="String">Fr 10:15 Uhr Workshop</Data></Cell>
+        <Cell><Data ss:Type="String">Fr 10:15 Uhr Workshop 1</Data></Cell>
+        <Cell><Data ss:Type="String">Fr 10:15 Uhr Workshop 2</Data></Cell>
+        <Cell><Data ss:Type="String">Fr 10:15 Uhr Workshop 3</Data></Cell>
+        <Cell><Data ss:Type="String">Fr 10:15 Uhr Workshop 4</Data></Cell>
         <Cell><Data ss:Type="String">Fr Mittagessen </Data></Cell>
         <Cell><Data ss:Type="String">Schwerpunkte</Data></Cell>
         <Cell><Data ss:Type="String">Verkehrsmittel</Data></Cell>
@@ -50,9 +56,15 @@
         <Cell><Data ss:Type="String"><%= p.telephone %></Data></Cell>
         <Cell><Data ss:Type="String"><%= p.do_opening ? 'ja' : 'nein' %></Data></Cell>
         <Cell><Data ss:Type="String"><%= p.do_lunch ? 'ja' : 'nein' %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= p.do_1330_workshop ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.do_1330_workshop == 1 ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.do_1330_workshop == 2 ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.do_1330_workshop == 3 ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.do_1330_workshop == 4 ? 'ja' : 'nein' %></Data></Cell>
         <Cell><Data ss:Type="String"><%= p.do_dinner ? 'ja' : 'nein' %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= p.fr_1015_workshop ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.fr_1015_workshop == 1 ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.fr_1015_workshop == 2 ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.fr_1015_workshop == 3 ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.fr_1015_workshop == 4 ? 'ja' : 'nein' %></Data></Cell>
         <Cell><Data ss:Type="String"><%= p.fr_lunch ? 'ja' : 'nein' %> </Data></Cell>
         <Cell><Data ss:Type="String"><%= p.focus %></Data></Cell>
         <Cell><Data ss:Type="String"><%= p.transport %></Data></Cell>
