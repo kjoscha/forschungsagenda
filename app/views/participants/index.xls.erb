@@ -37,6 +37,7 @@
         <Cell><Data ss:Type="String">Verkehrsmittel</Data></Cell>
         <Cell><Data ss:Type="String">Handlungsbedarf</Data></Cell>
         <Cell><Data ss:Type="String">Motto</Data></Cell>
+        <Cell><Data ss:Type="String">Foto?</Data></Cell>
       </Row>
     <% @participants.each do |p| %>
       <Row>
@@ -70,6 +71,7 @@
         <Cell><Data ss:Type="String"><%= p.transport %></Data></Cell>
         <Cell><Data ss:Type="String"><%= p.measure %></Data></Cell>
         <Cell><Data ss:Type="String"><%= p.slogan %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.portrait? ? 'ja' : 'nein' %></Data></Cell>
       </Row>
     <% end %>
     </Table>

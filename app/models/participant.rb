@@ -21,9 +21,9 @@ class Participant < ActiveRecord::Base
 
   mount_uploader :portrait, PortraitUploader
 
-  before_create :overwrite_not_completed
+  # before_create :overwrite_not_completed
 
-  validate :email_not_used_or_not_complete, on: :create
+  # validate :email_not_used_or_not_complete, on: :create
 
   def email_not_used_or_not_complete
     if Participant.completed.map(&:email).include? email
