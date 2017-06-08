@@ -82,6 +82,7 @@ class Participant < ActiveRecord::Base
       1 => 'Workshop I: Start-up meets Wissenschaft',
       2 => 'Workshop II: Internationale Perspektive zur Forschung im Bereich nachhaltiger Mobilität',
       3 => 'Workshop III: Weitere Agendaprozesse im Bereich Mobilität',
+      4 => 'Workshop IV: Industrie 4.0 meets Mobilität 4.0: Wie 3D-Druck die Mobilität revolutioniert'
     }
   end
 end
