@@ -38,6 +38,7 @@
         <Cell><Data ss:Type="String">Handlungsbedarf</Data></Cell>
         <Cell><Data ss:Type="String">Motto</Data></Cell>
         <Cell><Data ss:Type="String">Foto?</Data></Cell>
+        <Cell><Data ss:Type="String">Anmeldedatum</Data></Cell>
       </Row>
     <% @participants.each do |p| %>
       <Row>
@@ -72,6 +73,7 @@
         <Cell><Data ss:Type="String"><%= p.measure %></Data></Cell>
         <Cell><Data ss:Type="String"><%= p.slogan %></Data></Cell>
         <Cell><Data ss:Type="String"><%= p.portrait? ? 'ja' : 'nein' %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= p.created_at %></Data></Cell>
       </Row>
     <% end %>
     </Table>
