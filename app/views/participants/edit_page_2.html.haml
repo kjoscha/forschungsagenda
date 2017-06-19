@@ -38,11 +38,15 @@
           .col-xs-12
             %h4 13:30 - 16:30 Uhr Workshops *
             %p Ich möchte an folgendem Workshop teilnehmen:
-            - (1..4).each do |i|
+            - [1,3,4].each do |i|
               %label
                 = f.radio_button :do_1330_workshop, i
                 = @participant.do_1330_workshops[i]
               %br
+            .label.label-danger
+              Ausgebucht:
+              = @participant.do_1330_workshops[2]
+            %br
             %label
               = f.radio_button :do_1330_workshop, 0
               Ich nehme nicht teil
@@ -51,10 +55,11 @@
           .col-xs-12
             %h4 16:30 – 17:00 Kaffeepause
             %h4 17:00 - 18:30 Uhr Vorstellung der Ergebnisse aus den Workshops
-            %h4 18:30 - 22:00 Uhr Konferenzdinner *
+            %h4 18:30 - 22:00 Uhr Konferenzdinner (Warteliste) *
+            .label.label-warning Die maximale Teilnehmerzahl für das Dinner ist erreicht. Sie können sich hier für die Warteliste eintragen.
             %label
               = f.radio_button :do_dinner, true
-              Ja, ich nehme teil
+              Ja, ich möchte auf die Warteliste
             %br
             %label
               = f.radio_button :do_dinner, false
@@ -70,11 +75,15 @@
             %h4 09:30 - 10:15 Uhr Eröffnung und Keynote Speech
             %h4 10:15 – 11:45 Uhr Parallele Workshops *
             %p Ich möchte an folgendem Workshop teilnehmen:
-            - (1..4).each do |i|
+            - [1,2,4].each do |i|
               %label
                 = f.radio_button :fr_1015_workshop, i
                 = @participant.fr_1015_workshops[i]
               %br
+            .label.label-danger
+              Ausgebucht:
+              = @participant.fr_1015_workshops[3]
+            %br
             %label
               = f.radio_button :fr_1015_workshop, 0
               Ich nehme nicht teil
