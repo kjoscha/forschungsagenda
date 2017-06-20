@@ -10,7 +10,8 @@ class ParticipantsController < ApplicationController
   end
 
   def new
-    @participant = Participant.new
+    redirect_to :root
+    # @participant = Participant.new
   end
 
   def edit_page_2
